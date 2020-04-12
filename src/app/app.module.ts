@@ -1,18 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { StudentList } from './student-list.component';
-import { Student } from './student.component';
+import { productsListComponent } from './products-list.component';
+import { productDepartmentComponent } from './product-department.component';
+import { productImageComponent } from './product-image.component';
+import { productPriceComponent } from './product-price.component';
+import { productRowComponent } from './product-row.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    StudentList,
-    Student,
+    productsListComponent,
+    productDepartmentComponent,
+    productImageComponent,
+    productPriceComponent,
+    productRowComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

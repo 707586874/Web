@@ -1,23 +1,39 @@
 import { Component } from '@angular/core';
+import { Product } from './product';
 
 @Component({
-  selector: 'app-root',
+  selector: 'inventory-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title :string;
-  imgUrl:string;
-  url:string;
-  constructor(){
-    this.title = "hello";
-    this.imgUrl="./assets/imgs/ng-book2.png";
-    this.url="https://wwww.baidu.com";
+
+  products: Product[];
+
+  constructor() {
+    this.products = [
+      new Product(
+        'MYSHOES',
+        'Black Running Shoes',
+        '/assets/imgs/products/black-shoes.jpg',
+        ['Men', 'Shoes', 'Running Shoes'],
+        109.99),
+      new Product(
+        'NEATOJACKET',
+        'Blue Jacket',
+        '/assets/imgs/products/blue-jacket.jpg',
+        ['Women', 'Apparel', 'Jackets & Vests'],
+        238.99),
+      new Product(
+        'NICEHAT',
+        'A Nice Black Hat',
+        '/assets/imgs/products/black-hat.jpg',
+        ['Men', 'Accessories', 'Hats'],
+        29.99)
+    ];
   }
-  onBtnClicked(){
-console.log('hhhha');
-  }
-  onInput(evt:Event){
-    this.title=(<HTMLInputElement>evt.target).value;
+
+  onProductSelected(product: Product) {
+    console.log('在根组件中，响应产品:' + product.name + '选中事件！！');
   }
 }
